@@ -1,73 +1,120 @@
-# React + TypeScript + Vite
+# 🎯 SDK Interview Tracker - BioCatch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern application for managing and tracking job interviews for the SDK team, focusing on balanced workload distribution among team members.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📊 Real-time Statistics
+- **Visual representation** of interview counts per team member.
+- **Interactive charts** with color-coded progress bars.
+- **Auto-detection** of high/low workload (above/below average).
+- **Core metrics**: Total interviews and average per person.
 
-## React Compiler
+### ➕ Smart Interview Addition
+- **Automatic recommendation** for the interviewer with the fewest interviews.
+- Detailed fields:
+  - Candidate Name
+  - Interviewer (with current interview count display)
+  - Date and Time
+  - Status (Scheduled/Completed/Cancelled)
+  - Additional Notes
+- **Validation** for all required fields.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 📋 Advanced Interview Management
+- **Search** by candidate name or interviewer.
+- **Filter** by status or specific interviewer.
+- **Sort** by date, candidate name, or interviewer.
+- **Edit and Delete** existing interviews.
+- Clean and modern **card view**.
 
-## Expanding the ESLint configuration
+### 💾 Local Storage
+- All data is saved in LocalStorage.
+- Data persists even after closing the browser.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🎨 Modern Design
+- Clean and intuitive interface.
+- **Automatic support** for dark/light mode.
+- **Fully responsive** - works great on mobile and tablet.
+- **Smooth animations** and visual feedback.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Installation and Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
+- Node.js version 20.19+ or 22.12+ (**Important!**)
+- npm or yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Setup Steps
+
+1. **Check Node.js Version**
+```bash
+node --version
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+If the version is lower than 20.19, please upgrade:
+```bash
+# Using nvm (recommended)
+nvm install 20
+nvm use 20
 ```
+
+2. **Install Dependencies**
+```bash
+cd interviews-tracker
+npm install
+```
+
+3. **Run Development Server**
+```bash
+npm run dev
+```
+
+4. **Open Browser**
+The app should automatically open at `http://localhost:5173`.
+
+## 👥 Team Members
+
+The app comes pre-configured with the SDK team members:
+- Asaf Inbar
+- Aviv Frenkel
+- Ben Drori
+- Daniel Caspit
+- Daniel Hadad
+- Dvir Daniel
+- Gal Mirkin
+- Tal Kanel
+- Tal Levi
+- Yoav Paskaro
+
+## 💡 Future Feature Ideas
+
+1. **Data Export**
+   - Export to Excel/CSV.
+   - Monthly report generation.
+
+2. **Notifications**
+   - Alert when a team member reaches a certain interview threshold.
+   - Reminders before interviews.
+
+3. **Calendar Integration**
+   - Sync with Google Calendar.
+   - Auto-add events to the calendar.
+
+4. **Ratings and Reviews**
+   - Track candidate performance.
+   - Notes and recommendations.
+
+5. **Interview Templates**
+   - Save question templates.
+   - Interview topics by role.
+
+## 🛠️ Technologies
+
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **CSS3** with CSS Variables
+- **LocalStorage API**
+
+---
+
+**Built with pride for the BioCatch SDK Team** 🚀
