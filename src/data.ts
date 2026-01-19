@@ -11,5 +11,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: '8', name: 'Tal Kanel' },
   { id: '9', name: 'Tal Levi' },
   { id: '10', name: 'Yoav Paskaro' },
+  { id: '11', name: 'Zuri Choen' },
 ];
 
