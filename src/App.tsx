@@ -6,12 +6,12 @@ import { AddInterviewForm } from './components/AddInterviewForm';
 import { EditInterviewForm } from './components/EditInterviewForm';
 import { InterviewsList } from './components/InterviewsList';
 import { db } from './firebase';
-import { 
-  collection, 
-  onSnapshot, 
-  addDoc, 
-  updateDoc, 
-  deleteDoc, 
+import {
+  collection,
+  onSnapshot,
+  addDoc,
+  updateDoc,
+  deleteDoc,
   doc,
   query,
   orderBy
@@ -23,6 +23,13 @@ function App() {
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingInterview, setEditingInterview] = useState<Interview | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const [showCurrentCycleOnly, setShowCurrentCycleOnly] = useState(true);
+  const CYCLE_START_DATE = '2026-01-15';
+
+  const filteredInterviews = showCurrentCycleOnly
+    ? interviews.filter(interview => interview.date >= CYCLE_START_DATE)
+    : interviews;
 
   useEffect(() => {
     const q = query(collection(db, 'interviews'), orderBy('date', 'desc'));
@@ -89,19 +96,29 @@ function App() {
             <h1>🎯 SDK Interview Tracker</h1>
             <p className="subtitle">Balanced interview management for the team</p>
           </div>
-          <button 
-            className="add-interview-btn"
-            onClick={() => setShowAddForm(true)}
-          >
-            ➕ Add New Interview
-          </button>
+          <div className="header-actions">
+            <button
+              className={`filter-btn ${showCurrentCycleOnly ? 'active' : ''}`}
+              onClick={() => setShowCurrentCycleOnly(!showCurrentCycleOnly)}>
+              {showCurrentCycleOnly ? 'Show All Interviews' : 'Show Current Cycle Only'}
+
+            </button>
+
+
+            <button
+              className="add-interview-btn"
+              onClick={() => setShowAddForm(true)}
+            >
+              ➕ Add New Interview
+            </button>
+          </div>
         </div>
       </header>
 
       <main className="app-main">
-        <TeamStats teamMembers={TEAM_MEMBERS} interviews={interviews} />
-        <InterviewsList 
-          interviews={interviews}
+        <TeamStats teamMembers={TEAM_MEMBERS} interviews={filteredInterviews} />
+        <InterviewsList
+          interviews={filteredInterviews}
           teamMembers={TEAM_MEMBERS}
           onDelete={handleDeleteInterview}
           onEdit={setEditingInterview}
