@@ -77,9 +77,8 @@ The app comes pre-configured with the SDK team members:
 - Asaf Inbar
 - Aviv Frenkel
 - Ben Drori
-- Daniel Caspit
 - Daniel Hadad
-- Dvir Daniel
+- Danny Shefer
 - Gal Mirkin
 - Tal Kanel
 - Tal Levi
